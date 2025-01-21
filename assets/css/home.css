@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.about{
+    display: flex;
+    margin:20px 100px;
+    padding: 10px;
+
+}
+
+.about .profile{
+    margin:10px;
+    min-width: 300px;
+    align-items: center;
+}
+.about .profile .contact{
+    margin-top: 10px;
+    display: flex;
+}
+
+.about .profile .contact a {
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+
+}
+
+
+.about .des{
+    margin: 10px;
+}
+
+.about .des .first{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.projects_heading{
+    display: flex;
+    justify-content: center;
+}
+
+.projects{
+    display: flex;
+    margin:20px 100px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1050px) {
+    .projects{
+        margin: 10px; 
+        padding: 10px;
+    }
+    .about{
+        margin: 10px; 
+        padding: 10px;
+
+    }
+
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    .about .profile{
+        min-width: 290px;
+    }
+
+
+
+    
+}
+
+@media screen and (max-width: 500px) {
+    .projects{
+        flex-direction: column;
+    }
+    .about{
+        flex-direction: column;
+    }
+    
+}
+
+@media screen and (max-width: 340px) {
+    .profile{
+        margin: 0px;
+        width:  250px;
+    }
+}
