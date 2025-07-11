@@ -1,0 +1,104 @@
+Pawan  Parida
+Email 13zero7two005@gmail.com
+Phone 8700579954
+Address WZ-114B Naraina village
+Location New Delhi Delhi India
+Work Experience
+Edunet Foundation  | New delhi Delhi India
+Project Intern
+Apr.2025 - Apr.2025
+Developed a Crop and Fertilizer Recommendation System using machine learning, gaining hands-on 
+experience in data preprocessing, model training, and evaluation with real-world agricultural datasets. 
+Explored AI's role in environmental solutions, enhancing technical and problem-solving skills through a 
+structured learning portal, guided mentorship, and project-based assessments.
+Education
+DSEU Rajokri Campus  | Delhi India
+Information Technology , B.Sc Data Analytics
+Jun.2023 - Present
+A comprehensive undergraduate program focused on building core competencies in data analysis, 
+statistics, machine learning, Predictive modeling , and data visualization. 
+Skills
+Python
+Natural
+Language
+Processing
+Deep Learning
+MySQL
+Html
+Css
+Js
+Django
+Object oriented
+programming
+Langchain
+Pandas
+Numpy
+Tensorﬂow
+Projects
+
+MySQL database chatbot
+MySQL database chatbot
+Jun 2025 - Jun 2025Jun 2025 - Jun 2025
+I built MYSQLchatbot, an AI-powered chatbot that lets you query your e-commerce database using natural language, all through a sleek Streamlit interface.
+I built MYSQLchatbot, an AI-powered chatbot that lets you query your e-commerce database using natural language, all through a sleek Streamlit interface.
+Skills: Python (Programming Language) · Google Gemini · LangChain · streamlit · Large Language Models (LLM) · MySQL · Machine Learning · Natural Language Processing (NLP)
+
+
+Pneumonia Detection
+Pneumonia Detection
+Jul 2025 - Jul 2025Jul 2025 - Jul 2025
+I’ve developed a Pneumonia Detection System powered by a Convolutional Neural Network (CNN) to assist in early diagnosis using chest X-ray images.
+I’ve developed a Pneumonia Detection System powered by a Convolutional Neural Network (CNN) to assist in early diagnosis using chest X-ray images.
+Skills: Convolutional Neural Networks (CNN) · Deep Learning · python · Kaggle · FastAPI · HTML · Tailwind CSS · JavaScript · TensorFlow · Machine Learning
+
+Healthcare Chat bot | May 2025
+I developed a medical chatbot using LangChain for context handling, Pinecone for semantic search, and the 
+Gemini API for powerful language model capabilities. Streamlit provides an interactive user interface. The 
+chatbot understands natural medical queries, retrieves real-time information, and oﬀers responses based 
+on veriﬁed medical knowledge.
+git-repo-link : https://lnkd.in/guDpXakt
+Crop and fertilizers recommendation | May 2025
+with Streamlit, uses Decision Tree algorithms on soil and environmental data to suggest the best crop and 
+fertilizer for optimal yield and sustainability. It's powered by Python, Pandas, and Scikit-learn, 
+demonstrating a great blend of data science and practical application.
+git-repo-link : https://github.com/zer-
+art/ML_PROJECTS/tree/main/Crop%20and%20fertilizer%20Recomendation
+Spam and not Spam detection |Apr 2025
+This project aims to develop an intelligent spam detection system that classiﬁes text messages or emails 
+as "Spam" or "Not Spam" using cutting-edge natural language processing (NLP) techniques. The system is 
+built with BERT (Bidirectional Encoder Representations from Transformers) for generating powerful 
+contextual word embeddings, coupled with a custom deep learning model using TensorFlow's Functional 
+API for classiﬁcation. The model is deployed with an intuitive and interactive Streamlit-based web UI.
+git-repo-link : https://github.com/zer-art/NLP_PROJECTS/tree/main/SPAM_DETECTION_USING_BERT
+Handwritten Digit Classiﬁcation with Multi-Layer Perceptron | Apr 2025
+Developed a deep learning model to classify handwritten digits using the MNIST dataset. This project 
+focused on implementing a Multi-Layer Perceptron (MLP) network in Keras, demonstrating proﬁciency in 
+fundamental neural network architectures. 
+git-repo-link : 
+Certiﬁcate
+
+Object oriented programming in python by Infosys Springboard issued on Apr 2025  
+Mastering Data Analysis with pandas by Coursera issued on Apr 2025 : 
+https://www.coursera.org/account/accomplishments/records/W3Z71AYER30H
+
+Introduction to deep learning by Infosys Springboard issued on May 2025
+
+Introduction to Artiﬁcial intelligence by Infosys Springboard issued on May 2025 
+
+Computer Vision 101  by Infosys Springboard issued on May 2025 
+
+
+Linear Regression with Python
+Linear Regression with Python
+Coursera Project NetworkCoursera Project Network
+Issued Apr 2025Issued Apr 2025
+Credential ID JBZ36Y900I1HCredential ID JBZ36Y900I1H
+Show credential
+Skills: Pandas (Software) · NumPy · Matplotlib · Python (Programming Language) · Object-Oriented Programming (OOP)
+
+
+Languages
+Hindi
+English
+Odiya
+
