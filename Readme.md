@@ -57,9 +57,6 @@ portfolio/
 
 You can download the latest resume directly from the website using the "Download Resume" button in the header or contact section.
 
-## 🌐 Live Demo
-
-> _Host the site on GitHub Pages, Vercel, Netlify, or your preferred platform for a live demo._
 
 ## 📬 Contact
 
