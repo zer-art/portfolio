@@ -45,21 +45,43 @@ const certifications = [
     }
 ];
 
-// --- Projects Section: Now 6 projects ---
+
+// --- Projects from resume.txt (6 total, with links and descriptions) ---
 const projects = [
     {
-        title: "Healthcare Chatbot",
-        desc: "A medical chatbot using LangChain, Pinecone, Gemini API, and Streamlit for real-time, verified medical responses.",
-        tags: ["LangChain", "Pinecone", "Gemini API", "Streamlit"],
-        link: "https://lnkd.in/guDpXakt",
+        title: "AI Grammar Tutor",
+        desc: "Grammar tutor using Gemini API for LLM, prompt engineering, and FastAPI for backend. Interactive frontend with Tailwind CSS.",
+        tags: ["LangChain", "Python", "FastAPI", "Google Gemini", "HTML", "Tailwind CSS", "CSS", "JavaScript"],
+        link: "https://github.com/zer-art/grammer",
         bg: "from-blue-100 to-purple-100"
+    },
+    {
+        title: "MySQL Database Chatbot",
+        desc: "AI-powered chatbot to query your e-commerce MySQL database using natural language via Streamlit.",
+        tags: ["Python", "Google Gemini", "LangChain", "Streamlit", "LLM", "MySQL", "Machine Learning", "NLP"],
+        link: "https://github.com/zer-art/Mysql-database-chatbot",
+        bg: "from-pink-100 to-red-100"
+    },
+    {
+        title: "Pneumonia Detection",
+        desc: "CNN-powered system for early pneumonia diagnosis using chest X-ray images, built with TensorFlow and FastAPI.",
+        tags: ["CNN", "Deep Learning", "Python", "Kaggle", "FastAPI", "HTML", "Tailwind CSS", "JavaScript", "TensorFlow", "Machine Learning"],
+        link: "https://github.com/zer-art/pneumonia-detection",
+        bg: "from-indigo-100 to-blue-200"
+    },
+    {
+        title: "Healthcare Chatbot",
+        desc: "Medical chatbot using LangChain, Pinecone, Gemini API, and Streamlit for real-time, verified medical responses.",
+        tags: ["LangChain", "Pinecone", "Gemini API", "Streamlit"],
+        link: "https://github.com/zer-art/ML_PROJECTS/tree/main/Helthcare-app",
+        bg: "from-green-100 to-teal-100"
     },
     {
         title: "Crop & Fertilizer Recommendation",
         desc: "Streamlit app using Decision Tree on soil/environmental data to suggest optimal crops and fertilizers.",
         tags: ["Python", "Pandas", "Scikit-learn", "Streamlit"],
         link: "https://github.com/zer-art/ML_PROJECTS/tree/main/Crop%20and%20fertilizer%20Recomendation",
-        bg: "from-green-100 to-teal-100"
+        bg: "from-yellow-100 to-orange-100"
     },
     {
         title: "Spam & Not Spam Detection",
@@ -67,27 +89,6 @@ const projects = [
         tags: ["BERT", "TensorFlow", "Streamlit"],
         link: "https://github.com/zer-art/NLP_PROJECTS/tree/main/SPAM_DETECTION_USING_BERT",
         bg: "from-purple-100 to-pink-100"
-    },
-    {
-        title: "Handwritten Digit Classification",
-        desc: "Deep learning model (MLP, Keras) for MNIST digit classification, demonstrating neural network fundamentals.",
-        tags: ["Keras", "TensorFlow", "MLP"],
-        link: "",
-        bg: "from-yellow-100 to-orange-100"
-    },
-    {
-        title: "MySQL Database Chatbot",
-        desc: "AI-powered chatbot to query your e-commerce MySQL database using natural language via Streamlit.",
-        tags: ["Python", "LangChain", "Streamlit", "MySQL", "LLM"],
-        link: "",
-        bg: "from-pink-100 to-red-100"
-    },
-    {
-        title: "Pneumonia Detection",
-        desc: "CNN-powered system for early pneumonia diagnosis using chest X-ray images, built with TensorFlow and FastAPI.",
-        tags: ["CNN", "Deep Learning", "TensorFlow", "FastAPI", "Kaggle"],
-        link: "",
-        bg: "from-indigo-100 to-blue-200"
     }
 ];
 

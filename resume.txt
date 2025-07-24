@@ -36,27 +36,36 @@ Numpy
 Tensorﬂow
 Projects
 
-MySQL database chatbot
+AI grammer tutor
+Jul 2025 - Jul 2025Jul 2025 - Jul 2025
+Build a grammar tutor use gemini api for llm and fine tuned using prompt engineering also use fast api to interact with frontend
+
+Skills: LangChain · Python (Programming Language) · FastAPI · Google Gemini · HTML · Tailwind CSS · Cascading Style Sheets (CSS) · JavaScript
+
+github link : https://github.com/zer-art/grammer
+
 MySQL database chatbot
 Jun 2025 - Jun 2025Jun 2025 - Jun 2025
 I built MYSQLchatbot, an AI-powered chatbot that lets you query your e-commerce database using natural language, all through a sleek Streamlit interface.
 I built MYSQLchatbot, an AI-powered chatbot that lets you query your e-commerce database using natural language, all through a sleek Streamlit interface.
 Skills: Python (Programming Language) · Google Gemini · LangChain · streamlit · Large Language Models (LLM) · MySQL · Machine Learning · Natural Language Processing (NLP)
 
+github link : https://github.com/zer-art/Mysql-database-chatbot
 
-Pneumonia Detection
+
 Pneumonia Detection
 Jul 2025 - Jul 2025Jul 2025 - Jul 2025
 I’ve developed a Pneumonia Detection System powered by a Convolutional Neural Network (CNN) to assist in early diagnosis using chest X-ray images.
 I’ve developed a Pneumonia Detection System powered by a Convolutional Neural Network (CNN) to assist in early diagnosis using chest X-ray images.
 Skills: Convolutional Neural Networks (CNN) · Deep Learning · python · Kaggle · FastAPI · HTML · Tailwind CSS · JavaScript · TensorFlow · Machine Learning
+github link : https://github.com/zer-art/pneumonia-detection
 
 Healthcare Chat bot | May 2025
 I developed a medical chatbot using LangChain for context handling, Pinecone for semantic search, and the 
 Gemini API for powerful language model capabilities. Streamlit provides an interactive user interface. The 
 chatbot understands natural medical queries, retrieves real-time information, and oﬀers responses based 
 on veriﬁed medical knowledge.
-git-repo-link : https://lnkd.in/guDpXakt
+git-repo-link : https://github.com/zer-art/ML_PROJECTS/tree/main/Helthcare-app
 Crop and fertilizers recommendation | May 2025
 with Streamlit, uses Decision Tree algorithms on soil and environmental data to suggest the best crop and 
 fertilizer for optimal yield and sustainability. It's powered by Python, Pandas, and Scikit-learn, 
