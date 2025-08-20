@@ -34,6 +34,12 @@ Langchain
 Pandas
 Numpy
 Tensorﬂow
+langgraph
+n8n
+computer vision 
+open cv 
+
+
 Projects
 
 AI grammer tutor
@@ -85,6 +91,25 @@ focused on implementing a Multi-Layer Perceptron (MLP) network in Keras, demonst
 fundamental neural network architectures. 
 git-repo-link : 
 Certiﬁcate
+
+Focus Your Direction with Workplace Research (Job Application Essentials )
+IBM
+Issued Aug 2025
+Credential ID ILB-EKRXMDVQYGYM7V4E
+Skills: LinkedIn · Research Skills · Organization Skills
+
+Lloyds Banking Group - Data Science Job Simulation
+ForageForage
+Issued Jul 2025Issued Jul 2025
+Credential ID Wh5xsW6Zze4GotDfd
+Skills: Python (Programming Language) · Statistical Data Analysis · Exploratory Data Analysis
+
+Tata - Data Visualisation: Empowering Business with Effective Insights Job Simulation
+ForageForage
+Issued Jul 2025Issued Jul 2025
+Credential ID 62XbZwHTvfvxDegsS
+
+Skills: Microsoft Power BI · Data Processing · Data Visualization
 
 Object oriented programming in python by Infosys Springboard issued on Apr 2025  
 Mastering Data Analysis with pandas by Coursera issued on Apr 2025 : 

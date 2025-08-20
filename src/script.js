@@ -1,377 +1,509 @@
-// Skills data from resume.txt
-const skills = [
-    { name: 'Python', icon: 'https://img.icons8.com/color/48/python.png', color: 'bg-yellow-100' },
-    { name: 'Natural Language Processing', icon: 'https://img.icons8.com/color/48/nlp.png', color: 'bg-blue-100' },
-    { name: 'Deep Learning', icon: 'https://img.icons8.com/color/48/artificial-intelligence.png', color: 'bg-purple-100' },
-    { name: 'MySQL', icon: 'https://img.icons8.com/color/48/mysql-logo.png', color: 'bg-blue-100' },
-    { name: 'HTML', icon: 'https://img.icons8.com/color/48/html-5--v1.png', color: 'bg-orange-100' },
-    { name: 'CSS', icon: 'https://img.icons8.com/color/48/css3.png', color: 'bg-blue-100' },
-    { name: 'JavaScript', icon: 'https://img.icons8.com/color/48/javascript--v1.png', color: 'bg-yellow-100' },
-    { name: 'Django', icon: 'https://img.icons8.com/color/48/django.png', color: 'bg-green-100' },
-    { name: 'Object Oriented Programming', icon: 'https://img.icons8.com/color/48/class.png', color: 'bg-gray-100' },
-    { name: 'LangChain', icon: 'https://img.icons8.com/color/48/chain.png', color: 'bg-teal-100' },
-    { name: 'Pandas', icon: 'https://img.icons8.com/color/48/pandas.png', color: 'bg-pink-100' },
-    { name: 'NumPy', icon: 'https://img.icons8.com/color/48/numpy.png', color: 'bg-indigo-100' },
-    { name: 'TensorFlow', icon: 'https://img.icons8.com/color/48/tensorflow.png', color: 'bg-orange-100' }
-];
+// Portfolio Website JavaScript
 
-// Certifications from resume.txt
-const certifications = [
-    {
-        title: "Object Oriented Programming in Python",
-        issuer: "Infosys Springboard",
-        date: "Apr 2025"
-    },
-    {
-        title: "Mastering Data Analysis with pandas",
-        issuer: "Coursera",
-        date: "Apr 2025",
-        link: "https://www.coursera.org/account/accomplishments/records/W3Z71AYER30H"
-    },
-    {
-        title: "Introduction to Deep Learning",
-        issuer: "Infosys Springboard",
-        date: "May 2025"
-    },
-    {
-        title: "Introduction to Artificial Intelligence",
-        issuer: "Infosys Springboard",
-        date: "May 2025"
-    },
-    {
-        title: "Computer Vision 101",
-        issuer: "Infosys Springboard",
-        date: "May 2025"
-    }
-];
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+    });
+});
 
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
 
-// --- Projects from resume.txt (6 total, with links and descriptions) ---
-const projects = [
-    {
-        title: "AI Grammar Tutor",
-        desc: "Grammar tutor using Gemini API for LLM, prompt engineering, and FastAPI for backend. Interactive frontend with Tailwind CSS.",
-        tags: ["LangChain", "Python", "FastAPI", "Google Gemini", "HTML", "Tailwind CSS", "CSS", "JavaScript"],
-        link: "https://github.com/zer-art/grammer",
-        bg: "from-blue-100 to-purple-100"
-    },
-    {
-        title: "MySQL Database Chatbot",
-        desc: "AI-powered chatbot to query your e-commerce MySQL database using natural language via Streamlit.",
-        tags: ["Python", "Google Gemini", "LangChain", "Streamlit", "LLM", "MySQL", "Machine Learning", "NLP"],
-        link: "https://github.com/zer-art/Mysql-database-chatbot",
-        bg: "from-pink-100 to-red-100"
-    },
-    {
-        title: "Pneumonia Detection",
-        desc: "CNN-powered system for early pneumonia diagnosis using chest X-ray images, built with TensorFlow and FastAPI.",
-        tags: ["CNN", "Deep Learning", "Python", "Kaggle", "FastAPI", "HTML", "Tailwind CSS", "JavaScript", "TensorFlow", "Machine Learning"],
-        link: "https://github.com/zer-art/pneumonia-detection",
-        bg: "from-indigo-100 to-blue-200"
-    },
-    {
-        title: "Healthcare Chatbot",
-        desc: "Medical chatbot using LangChain, Pinecone, Gemini API, and Streamlit for real-time, verified medical responses.",
-        tags: ["LangChain", "Pinecone", "Gemini API", "Streamlit"],
-        link: "https://github.com/zer-art/ML_PROJECTS/tree/main/Helthcare-app",
-        bg: "from-green-100 to-teal-100"
-    },
-    {
-        title: "Crop & Fertilizer Recommendation",
-        desc: "Streamlit app using Decision Tree on soil/environmental data to suggest optimal crops and fertilizers.",
-        tags: ["Python", "Pandas", "Scikit-learn", "Streamlit"],
-        link: "https://github.com/zer-art/ML_PROJECTS/tree/main/Crop%20and%20fertilizer%20Recomendation",
-        bg: "from-yellow-100 to-orange-100"
-    },
-    {
-        title: "Spam & Not Spam Detection",
-        desc: "Spam classifier using BERT embeddings and a custom TensorFlow deep learning model, deployed with Streamlit.",
-        tags: ["BERT", "TensorFlow", "Streamlit"],
-        link: "https://github.com/zer-art/NLP_PROJECTS/tree/main/SPAM_DETECTION_USING_BERT",
-        bg: "from-purple-100 to-pink-100"
-    }
-];
+// Load saved theme preference or default to dark mode
+const savedTheme = localStorage.getItem('theme') || 'dark';
+htmlElement.setAttribute('data-theme', savedTheme);
 
-// Theme toggle functionality
-let isDark = false;
+// Update toggle state based on current theme
+if (savedTheme === 'dark') {
+    themeToggle.checked = true;
+}
 
-function toggleTheme() {
-    isDark = !isDark;
-    const body = document.body;
-    const themeButton = document.getElementById('theme-toggle');
-    
-    if (isDark) {
-        body.classList.add('dark');
-        themeButton.textContent = '☀️';
+// Theme toggle event listener
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
     } else {
-        body.classList.remove('dark');
-        themeButton.textContent = '🌙';
+        htmlElement.setAttribute('data-theme', 'emerald');
+        localStorage.setItem('theme', 'emerald');
     }
     
-    // Save theme preference
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
+    // Add transition class for smooth theme change
+    document.body.classList.add('theme-transition');
+    setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+    }, 500);
+});
 
-// Load saved theme
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        isDark = true;
-        document.body.classList.add('dark');
-        document.getElementById('theme-toggle').textContent = '☀️';
+// Typing animation for hero text
+function typeWriter(element, texts, speed = 100, deleteSpeed = 50, pauseTime = 2000) {
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+        const currentText = texts[textIndex];
+        
+        if (!isDeleting && charIndex < currentText.length) {
+            element.textContent += currentText.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, speed);
+        } else if (isDeleting && charIndex > 0) {
+            element.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(type, deleteSpeed);
+        } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+                textIndex = (textIndex + 1) % texts.length;
+                charIndex = 0;
+            }
+            setTimeout(type, pauseTime);
+        }
     }
+    
+    type();
 }
 
-// Populate skills grid
-function populateSkills() {
-    const skillsGrid = document.getElementById('skills-grid');
-    skillsGrid.innerHTML = '';
-    skills.forEach(skill => {
-        const skillCard = document.createElement('div');
-        skillCard.className = `${skill.color} p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 skill-item`;
-        skillCard.innerHTML = `
-            <div class="flex flex-col items-center space-y-3">
-                <img src="${skill.icon}" alt="${skill.name}" class="w-12 h-12 object-contain">
-                <div class="text-lg font-semibold text-gray-900">${skill.name}</div>
-            </div>
-        `;
-        skillsGrid.appendChild(skillCard);
+// Initialize typing animation when hero section is visible
+const typedTextElement = document.querySelector('.typed-text');
+if (typedTextElement) {
+    const texts = [
+        'Data Analytics Student',
+        'AI/ML Enthusiast', 
+        'Python Developer',
+        'Problem Solver',
+        'Innovation Seeker'
+    ];
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    typeWriter(typedTextElement, texts, 80, 40, 2000);
+                }, 800);
+                observer.disconnect();
+            }
+        });
     });
-}
-
-// --- Certifications Section: Pop animation on hover ---
-function renderCertifications(showAll = false) {
-    const grid = document.getElementById('certifications-grid');
-    grid.innerHTML = '';
-    const certsToShow = showAll ? certifications : certifications.slice(0, 3);
-    certsToShow.forEach(cert => {
-        const card = document.createElement('div');
-        card.className = "bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in certification-card hover:scale-105";
-        card.style.cursor = "pointer";
-        card.innerHTML = `
-            <div class="mb-4">
-                <div class="font-bold text-gray-900 text-lg">${cert.title}</div>
-                <div class="text-gray-600 text-sm">${cert.issuer}</div>
-                <div class="text-gray-400 text-xs">${cert.date}</div>
-            </div>
-            ${cert.link ? `<a href="${cert.link}" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm underline">View Certificate</a>` : ''}
-        `;
-        grid.appendChild(card);
-    });
-    // Toggle button text
-    const btn = document.getElementById('cert-view-toggle');
-    btn.textContent = showAll ? "View Less" : "View More";
-    btn.onclick = () => renderCertifications(!showAll);
-}
-
-// --- Projects Section: View More/View Less for 6 projects ---
-function populateProjects() {
-    const projectsGrid = document.querySelector('#projects .grid');
-    projectsGrid.innerHTML = '';
-    let showingAll = false;
-
-    function renderProjects(showAll) {
-        projectsGrid.innerHTML = '';
-        const toShow = showAll ? projects : projects.slice(0, 3);
-        toShow.forEach(proj => projectsGrid.appendChild(createProjectCard(proj)));
-
-        // View More/Less button
-        const viewDiv = document.createElement('div');
-        viewDiv.className = "col-span-full flex justify-center mt-8";
-        const btn = document.createElement('button');
-        btn.className = "bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors";
-        btn.textContent = showAll ? "View Less" : "View More";
-        btn.onclick = () => {
-            showingAll = !showingAll;
-            renderProjects(showingAll);
-        };
-        viewDiv.appendChild(btn);
-        projectsGrid.appendChild(viewDiv);
-    }
-    renderProjects(false);
-}
-
-function createProjectCard(proj) {
-    const card = document.createElement('div');
-    card.className = "bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in project-card";
-    card.innerHTML = `
-        <div class="h-48 bg-gradient-to-br ${proj.bg} flex items-center justify-center">
-            <span class="text-gray-500">${proj.title}</span>
-        </div>
-        <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">${proj.title}</h3>
-            <p class="text-gray-600 mb-4">${proj.desc}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                ${proj.tags.map(tag => `<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">${tag}</span>`).join('')}
-            </div>
-            ${proj.link ? `<a href="${proj.link}" class="text-blue-600 hover:text-blue-800 font-medium" target="_blank">View Project →</a>` : ''}
-        </div>
-    `;
-    return card;
+    observer.observe(typedTextElement);
 }
 
 // Smooth scrolling for navigation links
-function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-// Mobile menu toggle
-function initMobileMenu() {
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const nav = document.querySelector('nav');
-    if (!mobileMenuToggle || !nav) return;
-
-    function showMenu() {
-        nav.classList.remove('hidden');
-        nav.classList.add('flex');
-        nav.style.flexDirection = "column";
-        nav.style.position = "absolute";
-        nav.style.top = "64px";
-        nav.style.left = "0";
-        nav.style.width = "100%";
-        nav.style.background = "#fff";
-        nav.style.zIndex = "100";
-        nav.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
-    }
-    function hideMenu() {
-        nav.classList.add('hidden');
-        nav.classList.remove('flex');
-        nav.style.position = "";
-        nav.style.top = "";
-        nav.style.left = "";
-        nav.style.width = "";
-        nav.style.background = "";
-        nav.style.zIndex = "";
-        nav.style.boxShadow = "";
-    }
-
-    mobileMenuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (nav.classList.contains('hidden')) {
-            showMenu();
-        } else {
-            hideMenu();
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     });
-
-    // Hide nav on link click (mobile)
-    nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth < 768) {
-                hideMenu();
-            }
-        });
-    });
-
-    // Hide menu if clicked outside
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth < 768 && !nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-            hideMenu();
-        }
-    });
-
-    // On resize, reset nav
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768) {
-            nav.classList.remove('hidden');
-            nav.classList.add('flex');
-            nav.style = "";
-        } else {
-            hideMenu();
-        }
-    });
-}
-
-// --- Hero Section: Responsive photo above text on mobile ---
-function adjustHeroLayout() {
-    const heroGrid = document.querySelector('#home .grid');
-    if (!heroGrid) return;
-    if (window.innerWidth < 768) {
-        heroGrid.classList.remove('lg:grid-cols-2');
-        heroGrid.classList.add('grid-cols-1');
-        // Move photo above text
-        const photo = heroGrid.children[1];
-        if (photo && heroGrid.firstChild !== photo) {
-            heroGrid.insertBefore(photo, heroGrid.firstChild);
-        }
-    } else {
-        heroGrid.classList.remove('grid-cols-1');
-        heroGrid.classList.add('lg:grid-cols-2');
-        // Move text back to first
-        const text = heroGrid.querySelector('.space-y-6');
-        if (text && heroGrid.firstChild !== text) {
-            heroGrid.insertBefore(text, heroGrid.firstChild);
-        }
-    }
-}
-
-// --- DOMContentLoaded: Init everything ---
-document.addEventListener('DOMContentLoaded', function() {
-    // Load saved theme
-    loadTheme();
-    
-    // Set up theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    // Populate skills
-    populateSkills();
-    renderCertifications(false);
-    populateProjects();
-    
-    // Initialize smooth scrolling
-    initSmoothScrolling();
-    
-    // Initialize mobile menu
-    initMobileMenu();
-    
-    // Initialize scroll animations
-    initScrollAnimations();
-    
-    // Initialize contact form
-    initContactForm();
-    
-    console.log('Portfolio loaded successfully!');
 });
 
-// Add navbar background on scroll
+// Active navigation link highlighting
 window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.classList.add('bg-white/95');
-        header.classList.remove('bg-white/90');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionHeight = section.clientHeight;
+        if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('bg-opacity-95', 'backdrop-blur-md');
     } else {
-        header.classList.add('bg-white/90');
-        header.classList.remove('bg-white/95');
+        navbar.classList.remove('bg-opacity-95', 'backdrop-blur-md');
     }
 });
 
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease-in-out';
+// Typing animation for hero text
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Initialize typing animation when hero section is visible
+const heroTitle = document.querySelector('#home h1');
+if (heroTitle) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    typeWriter(heroTitle, "Hi, I'm Pawan Parida", 100);
+                }, 500);
+                observer.disconnect();
+            }
+        });
+    });
+    observer.observe(heroTitle);
+}
+
+// Particle animation for hero section
+function createParticles() {
+    const hero = document.querySelector('#home');
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    hero.appendChild(particlesContainer);
+    
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Initialize particles
+createParticles();
+
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const message = this.querySelector('textarea').value;
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            showNotification('Please fill in all fields', 'error');
+            return;
+        }
+        
+        // Simulate form submission
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="loading loading-spinner loading-sm"></span> Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            this.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type} fixed top-20 right-4 z-50 max-w-sm shadow-lg`;
+    notification.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>${message}</span>
+        <button class="btn btn-sm btn-ghost" onclick="this.parentElement.remove()">✕</button>
+    `;
+    
+    document.body.appendChild(notification);
     
     setTimeout(() => {
-        document.body.style.opacity = '1';
+        notification.remove();
+    }, 5000);
+}
+
+// Skill progress animations
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress-bar');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.getAttribute('data-width') || '80%';
+                bar.style.width = width;
+                observer.unobserve(bar);
+            }
+        });
+    });
+    
+    skillBars.forEach(bar => observer.observe(bar));
+}
+
+// Initialize skill bar animations
+animateSkillBars();
+
+// Card tilt effect
+function addTiltEffect() {
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
+
+// Initialize tilt effect
+addTiltEffect();
+
+// Lazy loading for images
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src');
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading
+lazyLoadImages();
+
+// Scroll to top functionality
+function addScrollToTop() {
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'btn btn-primary btn-circle fixed bottom-8 right-8 z-40 opacity-0 transition-opacity duration-300';
+    scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollBtn.style.display = 'none';
+    
+    document.body.appendChild(scrollBtn);
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.style.display = 'flex';
+            setTimeout(() => scrollBtn.style.opacity = '1', 10);
+        } else {
+            scrollBtn.style.opacity = '0';
+            setTimeout(() => scrollBtn.style.display = 'none', 300);
+        }
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Initialize scroll to top
+addScrollToTop();
+
+// Copy to clipboard functionality
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('Copied to clipboard!', 'success');
+    }).catch(() => {
+        showNotification('Failed to copy to clipboard', 'error');
+    });
+}
+
+// Add copy functionality to contact info
+document.querySelectorAll('.contact-info').forEach(item => {
+    item.addEventListener('click', function() {
+        const text = this.textContent.trim();
+        copyToClipboard(text);
+    });
+});
+
+// Keyboard navigation support
+document.addEventListener('keydown', function(e) {
+    // ESC key to close modals
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-open').forEach(modal => {
+            modal.classList.remove('modal-open');
+        });
+    }
+    
+    // Arrow keys for navigation
+    if (e.ctrlKey) {
+        switch(e.key) {
+            case 'ArrowUp':
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                break;
+        }
+    }
+});
+
+// Performance monitoring
+function logPerformance() {
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            }, 0);
+        });
+    }
+}
+
+// Initialize performance monitoring
+logPerformance();
+
+// Add Easter egg
+let konami = [];
+const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+document.addEventListener('keydown', function(e) {
+    konami.push(e.keyCode);
+    if (konami.length > konamiCode.length) {
+        konami.shift();
+    }
+    
+    if (konami.join('') === konamiCode.join('')) {
+        showNotification('🎉 Konami Code activated! You found the Easter egg!', 'success');
+        // Add some fun effect
+        document.body.style.animation = 'rainbow 2s infinite';
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 5000);
+    }
+});
+
+// Rainbow animation for Easter egg
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes rainbow {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+    }
+`;
+document.head.appendChild(style);
+
+// Preload critical resources
+function preloadResources() {
+    const criticalResources = [
+        'static/img/profile.jpeg',
+        'static/pdf/resume.pdf'
+    ];
+    
+    criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource;
+        link.as = resource.includes('.pdf') ? 'document' : 'image';
+        document.head.appendChild(link);
+    });
+}
+
+// Initialize preloading
+preloadResources();
+
+// Service Worker registration for offline support
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
+// Console message for developers
+console.log(`
+    🚀 Welcome to Pawan Parida's Portfolio!
+    
+    Built with:
+    - HTML5 & CSS3
+    - Tailwind CSS
+    - DaisyUI
+    - Vanilla JavaScript
+    - AOS Animation Library
+    
+    Feel free to explore the code!
+    GitHub: https://github.com/zer-art
+`);
+
+// Initialize all functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Portfolio website loaded successfully! 🎉');
+    
+    // Add loaded class for any CSS transitions
+    setTimeout(() => {
+        document.body.classList.add('loaded');
     }, 100);
 });
 
-// --- Responsive hero section on resize ---
-window.addEventListener('resize', adjustHeroLayout);
+// Handle page visibility changes
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        document.title = '👋 Come back! - Pawan Parida Portfolio';
+    } else {
+        document.title = 'Pawan Parida - Portfolio';
+    }
+});
+
+// Export functions for external use
+window.portfolioUtils = {
+    showNotification,
+    copyToClipboard,
+    typeWriter
+};
